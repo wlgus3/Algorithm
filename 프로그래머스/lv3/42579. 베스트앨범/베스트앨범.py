@@ -51,12 +51,7 @@ def solution(genres,plays):
         dict[genres[i]].append([plays[i],i])    #[플레이수,인덱스]형태로 넣기
 
     rank = sorted(totaldict, key=lambda x:totaldict[x], reverse=True)
-    # while dict!={}:
-    #     dict_max=max(dict.values()[0])
-    #     for genre in dict.values():
-    #         if genre[0]==dict_max:
-    #             answer
-                
+
     for item in rank:
         # sorting songs based on the number of plays in descending order.
         temp = sorted(dict[item], key=lambda x:(x[0],-x[1]), reverse=True)
