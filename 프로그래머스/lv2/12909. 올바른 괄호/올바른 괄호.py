@@ -1,14 +1,14 @@
 def solution(s):
-    memo=[]
+    stack=[]
     for i in s: 
-        if not memo and i==')':
+        if not stack and i==')':
             return False
         if i=='(':
-            memo.append(')')
+            stack.append(')')
         else:
-            if memo[-1]==i:
-                memo.pop()
+            if stack[-1]==i:
+                stack.pop()
             else:
                 return False
-    if memo==[]:return True
+    if stack==[]:return True
     else:return False
