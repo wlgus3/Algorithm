@@ -42,22 +42,46 @@
 
 
 
-#재귀 ,dfs로 품 
+# #재귀 ,dfs로 품 
+# def solution(numbers, target):
+
+#     def calc(idx, sum): 
+#         nonlocal answer
+
+#         if idx == len(numbers): #트리 레벨이 numbers 리스트 길이만큼 커졌을 때 중단.
+#             if sum == target:
+#                 answer += 1
+#             return
+
+#         calc(idx+1, sum + numbers[idx])
+#         calc(idx+1, sum - numbers[idx]) # 재귀로 끝까지 확인하도록 보냄
+#         #재귀 함수 내 별도로 sum + - 하는 코드 없이 재귀 소환시 + - 를 해서 전달함.
+
+#     answer = 0
+#     calc(0, 0)
+
+#     return answer
+
 def solution(numbers, target):
+    #이진트리 ? -> 더하거나/ 빼거나 라는 두 가지로 계속 늘어나니까
+    count=0
+    def recursion(idx, sum):
+        nonlocal count
 
-    def calc(idx, sum): 
-        nonlocal answer
-
-        if idx == len(numbers): #트리 레벨이 numbers 리스트 길이만큼 커졌을 때 중단.
-            if sum == target:
-                answer += 1
-            return
-
-        calc(idx+1, sum + numbers[idx])
-        calc(idx+1, sum - numbers[idx]) # 재귀로 끝까지 확인하도록 보냄
-        #재귀 함수 내 별도로 sum + - 하는 코드 없이 재귀 소환시 + - 를 해서 전달함.
-
-    answer = 0
-    calc(0, 0)
-
-    return answer
+        if idx== len(numbers):
+            if sum== target:
+                count+=1
+                print(sum)
+        else: 
+            recursion(idx+1, sum+numbers[idx])
+            recursion(idx+1, sum-numbers[idx])
+    recursion(0,0)
+    return count
+    
+    
+    
+    
+    
+    
+    
+    
