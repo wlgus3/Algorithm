@@ -55,7 +55,8 @@ def solution(numbers):
     maxlen=len(arr)
     # print(arr,maxlen)
     answerlist=[]
-    #dfs(value,newarr): 해서 돌리고 value에 하나씩붙이면서 경우의수 만들어봄 
+    
+    #dfs(value,newarr): 으로 value에 하나씩붙이면서 경우의수 만들어봄 array는 당연히 뽑은 숫자는 뺀 어레이로 계속해서 바꿔서 넣어줌 
     
     def dfs(value,array):
         numbervalue=int(value)
@@ -69,8 +70,8 @@ def solution(numbers):
             index =tmparr.index(j)
             tmparr.pop(index)
             dfs(value+j, tmparr)
-    
-    for i in arr:
+
+    for i in arr:   
         tmparr=arr.copy()
         index =tmparr.index(i)
         tmparr.pop(index)
