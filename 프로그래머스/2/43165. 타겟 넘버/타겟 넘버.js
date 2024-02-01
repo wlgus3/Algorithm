@@ -7,6 +7,7 @@ function solution(numbers, target) {
 
             return
         }
+        //더하거나 빼는 두가지 경우의 수
         recursion(index+1, sum+ numbers[index])
         recursion(index+1, sum- numbers[index])
         
@@ -14,20 +15,3 @@ function solution(numbers, target) {
     recursion(0,0)
     return answer;
 }
-
-// function solution(numbers, target){
-//     let answer=0
-//     function dfs(now,  count,idx){
-//         if(count===numbers.length ){
-//             if( now ===target){
-//             answer++
-//             }
-//             return
-//         }
-//             dfs(now+numbers[idx],count+1,idx+1)
-//             dfs(now-numbers[idx],count+1,idx+1)
-//     }
-    
-//     dfs(0,0,0)
-//     return answer
-// }
