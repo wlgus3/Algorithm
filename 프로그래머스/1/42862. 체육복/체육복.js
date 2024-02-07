@@ -5,16 +5,16 @@ function solution(n, lost, reserve) {
     let count=0
     let postlost=-1
     let postreserve=-1
-    //학생 번호 1~n까지 순회하면서 reserve에 lost에 있는지,reserve에 있는지 확인하면서 순회
+    //학생 번호 1~n까지 순회하면서 현 번호가 lost에 있는지,reserve에 있는지 확인하면서 순회
+    //각 상황에서 직전번호 reserve, 직전번호 lost 여부 확인하면서 그에 맞는 조치 해줌
     for (let i=1; i<=n;i++){
-    //직전 reserve, 직전 lost 여부 확인하면서 전진하고 
-        if(lost.includes(i)){ //도난
+        if(lost.includes(i)){ //도난 => 현 번호 lost인지 먼저 확인, 
             if (reserve.includes(i)){ //도난, 여유분o
                 count+=1
             }else if(postreserve==i-1){ //도난, 이전 여유분o
                 count+=1
             }else{ postlost=i} //도난, 이전 여유분x
-        }else{
+        }else{ //=> lost 아니면 직전이 lost인지 확인하고 reserve있으면 직전 애한테 빌려준다. 
             count+=1
             if(reserve.includes(i)){  //도난x ,여유분 o
                 if(postlost==i-1){  //여유분 이전사람 빌려줌
@@ -23,16 +23,7 @@ function solution(n, lost, reserve) {
                     postreserve=i
                 }
             }
-            
         } 
-        console.log(i,count)
-    //현 번호 lost인지 먼저 확인, 
-    //lost 아니면 직전이 lost인지 확인하고 reserve있으면 직전 애한테 빌려준다. 
-        
     }
-    
-    // ooxoxox
-    // ___r_r_
-    var answer = count;
-    return answer;
+    return count;
 }
