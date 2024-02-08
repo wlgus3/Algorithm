@@ -3,6 +3,7 @@ def solution(people, limit):
     answer = 0
 
     people = sorted(people)
+    print(people)
     l = 0
     r = len(people)-1
 
