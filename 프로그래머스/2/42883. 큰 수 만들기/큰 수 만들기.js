@@ -51,6 +51,8 @@
 //     return answer
 // }
 
+
+//  https://han-joon-hyeok.github.io/posts/programmers-making-the-biggest-number/
 function solution(number, k) {
   const stack = [];
 
