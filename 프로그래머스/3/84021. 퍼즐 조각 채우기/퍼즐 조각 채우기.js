@@ -18,7 +18,7 @@
 //     return answer;
 // }
 
-function moveBlock(block){
+function moveBlock(block) {
     let minX = Math.min(...block.map(v=>v[0]))
     let minY = Math.min(...block.map(v=>v[1]))
    
