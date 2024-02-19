@@ -53,18 +53,43 @@
 
 
 //  https://han-joon-hyeok.github.io/posts/programmers-making-the-biggest-number/
-function solution(number, k) {
-  const stack = [];
+// function solution(number, k) {
+//   const stack = [];
 
-  for (const num of number) {
-    while (k > 0 && stack[stack.length - 1] < num) {
-      stack.pop();
-      k--;
+//   for (const num of number) {
+//     while (k > 0 && stack[stack.length - 1] < num) {
+//       stack.pop();
+//       k--;
+//     }
+//     stack.push(num);
+//   }
+
+//   stack.splice(stack.length - k, k);
+
+//   return stack.join("");
+// }
+
+function solution(number,k){
+    let answer='0'
+    let arr=number.split('')
+    // console.log(arr)
+    let stack=[]
+    // 순회하면서 k가 여유가 있는만큼 현 num보다 작은 숫자들을 뺀다.
+    // 현재 숫자는 일단 고른다고 가정. 어차피 뒤에 가면 더 큰 수가 나왔을 때 삭제될 것이기 때문에
+    for( let num of arr){
+        while (k>0 && num>stack[stack.length-1] ){
+            stack.pop()
+            k--
+        }
+        stack.push(num)
     }
-    stack.push(num);
-  }
-
-  stack.splice(stack.length - k, k);
-
-  return stack.join("");
+    //333222111 처럼 점점 작아지는 수들을 위한 
+    stack=stack.slice(0,stack.length-k)
+    return stack.join('')
+    
 }
+
+
+
+
+
