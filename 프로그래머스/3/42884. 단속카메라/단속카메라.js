@@ -8,7 +8,7 @@ function solution(routes) {
     let min = 0;
     let max = 0;
 
-    for(let i = 0; i < routes.length; i++){
+    for(let i = 0; i < routes.length; i++){ 
         // 첫번째 차를 무조건 min, max로 설정하고, 카메라 개수를 하나 더해준다.
         if(i == 0){
             answer+=1;
