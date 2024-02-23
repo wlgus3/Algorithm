@@ -2,7 +2,7 @@ function solution(routes) {
     let answer = 0;
 
     // 1. routes[i][0] 기준으로 오름차순 정렬한다
-    routes.sort(function compare(a, b) {
+    routes.sort(function compare(a, b) { 
     return a[0] - b[0];
     });
     let min = 0;
