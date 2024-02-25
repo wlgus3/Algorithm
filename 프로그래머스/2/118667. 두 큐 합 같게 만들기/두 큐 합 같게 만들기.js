@@ -25,11 +25,13 @@ function solution(q1, q2) {
         if (q1s < q2s) {
             q1.push(q2[d2])
             q1s += q2[d2]
-            q2s -= q2[d2++]
+            q2s -= q2[d2]
+            d2++
         } else if (q1s > q2s) {
             q2.push(q1[d1])
             q2s += q1[d1]
-            q1s -= q1[d1++]
+            q1s -= q1[d1]
+            d1++
         }
         tried += 1
     }
