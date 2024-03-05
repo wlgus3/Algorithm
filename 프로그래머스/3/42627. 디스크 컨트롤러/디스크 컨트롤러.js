@@ -1,4 +1,4 @@
-class Heap {
+class Heap { 
   constructor() {
     this.item = [];
   }
