@@ -4,7 +4,7 @@ def solution(scoville, K):
     judge=False
     heapq.heapify(scoville) 
     
-    while judge!=True:
+    while judge!=True: 
         if scoville[0]>=K:   
             judge= True
             break
