@@ -13,7 +13,7 @@ class Heap {
 
   getParent(index) {
     return Math.floor((index - 1) / 2);
-  }
+  } 
 
   getLeftChild(index) {
     return index * 2 + 1;
