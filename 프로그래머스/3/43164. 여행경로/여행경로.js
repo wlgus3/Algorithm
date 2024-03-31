@@ -45,25 +45,20 @@ function solution(tickets){
     for( c of tickets){
         let [start ,end] =c
         graph[start]?graph[start].push(end):graph[start]=[end]
-        graph[start].sort()
-    }
-    console.log(graph)
-    
-    for( key in graph){
-        graph[key].sort();
+        graph[start].sort() //문자기준 오름차순
     }
     console.log(graph)
     
     const stack = ['ICN']
     while(stack.length>0){
-        console.log(stack);
-        const st = stack[stack.length-1];
-        if (graph[st] && graph[st].length > 0) {
-           stack.push(graph[st].shift());
-        } else { 
-            answer.push(stack.pop());
+        console.log(stack)
+        const now = stack[stack.length-1];
+        if (graph[now] && graph[now].length > 0) {//티켓있으면 방문
+           stack.push(graph[now].shift())
+        } else { //티켓 더이상 없으면   
+            console.log('pop',answer)
+            answer.unshift(stack.pop());
         }
     }
-
-    return answer.reverse()
+    return answer
 }
