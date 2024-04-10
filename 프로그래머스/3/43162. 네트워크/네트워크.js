@@ -1,34 +1,34 @@
-function solution(n, computers) {
-    let answer = 0;
-    let graph={}
-    for(let i=0 ;i<n; i++){
-        graph[i]=computers[i]
-    }
-    // console.log(graph)
-    visited=Array(n).fill(false)
-    // console.log(visited)
-    for(let j=0 ;j<n;j++){
-        if(!visited[j]){
-            dfs(j)
-            // console.log(visited )
-            answer++
-        }
-    }
-    function dfs(now){
-        visited[now]=true
-        if(graph[now]){
-            for(let node=0;node<n;node++){
-                // console.log(node)//n:인덱스
-                if(graph[now][node]==1){    //연결되어있음 
-                    if(!visited[node]){dfs(node)}
-                }                
-            }
-        }
-        return
-    }
+// function solution(n, computers) {
+//     let answer = 0;
+//     //그래프 그리기 
+//     let graph={}
+//     for(let i=0 ;i<n; i++){
+//         graph[i]=computers[i]
+//     }
+//     //방문여부 기록할 visited arr
+//     let visited=Array(n).fill(false)
     
-    return answer;
-}
+//     for(let j=0 ;j<n;j++){
+//         if(!visited[j]){
+//             dfs(j)
+//             answer++
+//         }
+//     }
+    
+//     //dfs 정의 -> 현 노드를 받고 해당 노드에 연결된 모든 네트워크를 순회하며 visited 처리
+//     function dfs(now){
+//         visited[now]=true
+//         if(graph[now]){
+//             for(let node=0;node<n;node++){// node: 컴퓨터 번호
+//                 if(graph[now][node]==1 &&!visited[node]){    //연결되어 있다면
+//                     dfs(node)
+//                 }                
+//             }
+//         }
+//         return
+//     }
+//     return answer;
+// }
 
 
 // function solution(n, computers) {
@@ -54,3 +54,32 @@ function solution(n, computers) {
 //         }
 //     }
 // }
+
+
+//24/04/11
+function solution(n, computers){
+    let answer=0
+    const check =Array(n).fill(false)
+    
+    function dfs(idx){
+        // if(check[idx]){
+            // return
+        // }
+        check[idx]=true
+        computers[idx].forEach((val,index)=>{
+            if(val===1&& !check[index]){
+                dfs(index)
+            }
+        })
+    }
+    
+    for (let i=0; i<n;i++){
+        if(!check[i]){
+            dfs(i)
+            console.log(check)
+            answer++
+        }
+    }
+    
+    return answer
+}
