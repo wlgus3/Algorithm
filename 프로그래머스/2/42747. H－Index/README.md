@@ -1,6 +1,6 @@
 # [level 2] H-Index - 42747 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42747?language=javascript) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42747) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 1일 12:52:39
+2024년 04월 13일 23:59:31
 
 ### 문제 설명
 
