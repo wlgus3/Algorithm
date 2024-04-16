@@ -1,63 +1,47 @@
-function solution(bridge_length, weight, truck_weights) {
-    let answer = 0;
-    let q=[]
-    for(_=0;_<bridge_length;_++){
-        q.push(0)
-    }
-    // let arr=[...truck_weights]
-    console.log(q)
-    let timer=0
-    let onBridge=0
-    let truckCount=truck_weights.length-1
-    let truckIdx=0
-    while (truckIdx<=truckCount){
-        timer++ //1초가 흐르면서
-        let rear=q.pop()    //마지막 차 나감
-        onBridge=onBridge-rear   //다리 위 무게 내려감
-        if (onBridge+truck_weights[truckIdx]<=weight){
-            q.unshift(truck_weights[truckIdx])
-            onBridge+=truck_weights[truckIdx]
-            truckIdx+=1
-        }else{
-            q.unshift(0)
-        }
-        // console.log(truckIdx,onBridge)
-    }
-    answer=timer+bridge_length
-    return answer;
-}
-
 // function solution(bridge_length, weight, truck_weights) {
-//   let answer = 0;
-  
-//   // 다리 위에 올라간 트럭 배열
-//   let bridge = Array.from({length: bridge_length}, () => 0);
-//   // 현재 시점 다리에 걸린 하중
-//   let bridge_sum = 0;
-  
-//   // 1초를 증가시키고, 맨 처음 트럭을 다리에 올린다.
-//   answer++;
-//   bridge.shift();
-//   bridge_sum += truck_weights[0];
-//   bridge.push(truck_weights.shift());
-  
-//   // 대기 트럭 배열이 남아있거나 다리 위에 올라간 트럭 배열이 남아있는 동안,
-//   while (bridge_sum > 0) {
-//       // 우선 시간이 1초 지났을 때, 
-//       answer++;
-      
-//       // 큐의 맨 앞을 꺼내고, 
-//       bridge_sum -= bridge.shift();
-      
-//       // 만약 현재 시점 다리 하중에 다음 트럭의 무게를 더해도 다리가 버틸 수 있다면?
-//       if (truck_weights.length > 0 && bridge_sum + truck_weights[0] <= weight) {
-//           // 다음 트럭을 다리 배열에 넣는다.
-//           bridge_sum += truck_weights[0];
-//           bridge.push(truck_weights.shift());
-//         } else {
-//           bridge.push(0);
-//       }
-//   }
-  
-//   return answer;
+//     let answer = 0;
+//     let q=[]
+//     for(_=0;_<bridge_length;_++){
+//         q.push(0)
+//     }
+    
+//     console.log(q)
+//     let timer=0
+//     let onBridge=0
+//     let truckCount=truck_weights.length-1
+//     let truckIdx=0
+//     //모든 차가 다리 위에 진입할 때까지 반복한다.
+//     while (truckIdx<=truckCount){
+//         timer++ //1초가 흐르면서
+//         let rear=q.pop()    //마지막 차 나가면서
+//         onBridge=onBridge-rear   //다리 위 트럭무게 내려감
+//         if (onBridge+truck_weights[truckIdx]<=weight){  //다음 차가 다리에 진입해도 제한무게보다 적다면
+//             q.unshift(truck_weights[truckIdx])  
+//             onBridge+=truck_weights[truckIdx]
+//             truckIdx+=1
+//         }else{  //다음 차를 올릴 수 없다면 공백을 의미하는 0을 올림
+//             q.unshift(0)
+//         }
+//         // console.log(truckIdx,onBridge)
+//     }
+//     //모든 차가 다리 위에 올라간 순간부터 +다리의 길이 를 해야 직전에 진입한 차가 다리를 빠져나오기 때문에 더해준다.
+//     answer=timer+bridge_length 
+//     return answer;
 // }
+
+function solution( bridge_length, weight, truck_weights){
+    let onTheBridge=0
+    let timer=0
+    const waitTrucks=[...truck_weights]
+    const bridge =Array(bridge_length).fill(0)
+    while(waitTrucks.length>0){
+        timer++
+        onTheBridge-=bridge.pop()
+        if(waitTrucks[0]+onTheBridge <=weight ){
+            const initTruck =waitTrucks.shift()
+            bridge.unshift(initTruck)
+            onTheBridge+=initTruck
+        }else{bridge.unshift(0)}
+    }
+    return timer+bridge_length
+}
