@@ -1,4 +1,4 @@
-// // 내가 못품
+
 // // https://school.programmers.co.kr/questions/45028
 
 // //stack을 이용해서 풀자
@@ -51,23 +51,6 @@
 //     return answer
 // }
 
-
-//  https://han-joon-hyeok.github.io/posts/programmers-making-the-biggest-number/
-// function solution(number, k) {
-//   const stack = [];
-
-//   for (const num of number) {
-//     while (k > 0 && stack[stack.length - 1] < num) {
-//       stack.pop();
-//       k--;
-//     }
-//     stack.push(num);
-//   }
-
-//   stack.splice(stack.length - k, k);
-
-//   return stack.join("");
-// }
 
 function solution(number,k){
     let answer='0'
