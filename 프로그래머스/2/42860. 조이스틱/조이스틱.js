@@ -34,7 +34,6 @@ function solution(name){
     let alphabets='ABCDEFGHIJKLMNOPQRSTUVWXYZ'//알파벳 총 길이= 26
     let min_move = name.length - 1; //A가 있던 말던 그냥 정방향으로 쭉 순회하는 이동횟수
     // indexOf가 13이하=그대로, 14이상= 26-indexOf
-    
     [...name].map((n, i) => {
         answer+= Math.min(alphabets.indexOf(n),26-alphabets.indexOf(n))
         let idx=i+1
