@@ -62,12 +62,9 @@ function solution(n, computers){
     const check =Array(n).fill(false)
     
     function dfs(idx){
-        // if(check[idx]){
-            // return
-        // }
-        check[idx]=true
-        computers[idx].forEach((val,index)=>{
-            if(val===1&& !check[index]){
+        check[idx]=true //해당 인덱스로 들어오면 방문처리
+        computers[idx].forEach((val,index)=>{   //연결 배열 순회하면서 
+            if(val===1&& !check[index]){    //연결되어있지만 방문안되면 진입함.
                 dfs(index)
             }
         })
@@ -75,8 +72,7 @@ function solution(n, computers){
     
     for (let i=0; i<n;i++){
         if(!check[i]){
-            dfs(i)
-            console.log(check)
+            dfs(i)  //한번 돌리면 해당 노드에 연결된 모든노드 방문체크됨 
             answer++
         }
     }
