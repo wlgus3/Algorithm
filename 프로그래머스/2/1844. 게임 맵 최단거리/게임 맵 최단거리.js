@@ -1,10 +1,3 @@
-// function solution(maps){
-//     let answer=-1
-    
-//     return answer    
-// }
-
-
 //최단거리 구할때 bfs 써야함
 function solution(maps) {
     let answer = 1;
