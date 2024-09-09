@@ -1,7 +1,6 @@
 
 //
 function solution(begin, target, words) {
-    // const visited =Array(words.length).fill(false)
     const visited = {};
     visited[begin]=0
     const queue=[begin]
